@@ -1,0 +1,73 @@
+Jumper Class Design
+
+Director:
+ Has:
+   - Word Getter
+   - Word Printer
+   - Jumper
+   - User Input
+   - Game over (bool)
+
+ Does:
+    - plays the game
+        - Word Getter (gets the word)
+        While game is not over
+            - [Word] prints the "_ _ _ _ _"
+            - [Jumper] print (prints Jumper man and parachute)
+            - [User Input] (gets a letter from the user)
+            - [Word] Check if user input is a letter in the word
+                - If not in word --> [Jumper] alter state
+                    - Check if the Jumper
+                - Else 
+                    [Word] Is Word complete?
+                    (Game over)
+            (repeats)
+
+
+Word:
+ Has:
+    - The whole word (string)
+    - Guessed_word string or character list ["_", "_", "_", "_", "_"] --> ["c", "l", "a", "s", "s"]
+    - All guessed (bool)
+
+ Does:
+    - print the "_" and the guessed letters
+    - check if the letter is within the word (given a single letter) (return True/False)
+        - is the letter within the word?
+        - add to correctly guessed
+    - check if any underscores in the Guessed_word (return True/False for All guessed)
+
+
+Jumper:
+ Has:
+    - current state of the jumper (string []) --> initializes to default image
+        ^-- updates when remove line function called
+        [" ___ ", "/____\", ...]
+    - is jumper alive? True/False --> print 'dead' version
+
+ Does:
+    - print the jumper image
+    - alter the jumper image (remove a line)
+        - if next line is "0" change to "x"
+           set jumper alive --> false
+    - get jumper alive to send to director
+  
+
+Word Getter:
+ Has: 
+    - list of words string [] (read from file or have a set list)
+      - can just be five letter words
+ Does:
+    - gives a random word
+
+
+User Input:
+ Has:
+    - list of unguessed letters (built in function --> ASCII lower)
+    - list of guessed letters
+
+ Does:
+    - Get valid input from the user (single character) <-- checks within ASCII lowercase list
+     - To lower any capital input
+     - not a number or symbol
+     - Check for repeat letters
