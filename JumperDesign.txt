@@ -1,6 +1,7 @@
 Jumper Class Design
+- Can team up on a class, reach out on Slack if you need help
 
-Director:
+Director: (Ashley)
  Has:
    - Word Getter
    - Word Printer
@@ -24,7 +25,7 @@ Director:
             (repeats)
 
 
-Word:
+Word: (Matt)
  Has:
     - The whole word (string)
     - Guessed_word string or character list ["_", "_", "_", "_", "_"] --> ["c", "l", "a", "s", "s"]
@@ -38,7 +39,7 @@ Word:
     - check if any underscores in the Guessed_word (return True/False for All guessed)
 
 
-Jumper:
+Jumper: (John, Paulo)
  Has:
     - current state of the jumper (string []) --> initializes to default image
         ^-- updates when remove line function called
@@ -53,15 +54,16 @@ Jumper:
     - get jumper alive to send to director
   
 
-Word Getter:
+Word Getter: (Hailey)
  Has: 
     - list of words string [] (read from file or have a set list)
       - can just be five letter words
  Does:
-    - gives a random word
+    - gives a random word (randomly choose the index, pick that word)
+    - (fancy) get words from a json list or a .txt list and put them into a string list
 
 
-User Input:
+User Input: (Ethan)
  Has:
     - list of unguessed letters (built in function --> ASCII lower)
     - list of guessed letters
