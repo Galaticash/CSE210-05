@@ -4,7 +4,7 @@ Jumper Class Design
 Director: (Ashley)
  Has:
    - Word Getter
-   - Word Printer
+   - Word
    - Jumper
    - User Input
    - Game over (bool)
@@ -18,7 +18,7 @@ Director: (Ashley)
             - [User Input] (gets a letter from the user)
             - [Word] Check if user input is a letter in the word
                 - If not in word --> [Jumper] alter state
-                    - Check if the Jumper
+                    - Check if the Jumper is still alive
                 - Else 
                     [Word] Is Word complete?
                     (Game over)
