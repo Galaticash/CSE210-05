@@ -9,6 +9,8 @@ class WordGetter():
         self._wordlist = ["water", "house", "think", "years", "small", "large", "study", "night", "paper", "table", 
         "order", "black", "horse", "green", "river", "field", "leave", "winds", "zesty", "maybe"]
 
+        # Can't return values inside the constructor method,
+        # Create another method "get_word" where this is the only line
         return(random.choice(self._wordlist))
 
 

@@ -2,9 +2,8 @@
 # Team Members: Ashley DeMott (Director Class)
 #               Matt Rucker (Word)
 #               John Lydiksen (Jumper)
-#               Paulo Sergio Lopes (Jumper)
-#               Hailey Phipps (Word Getter/Word Generator)
-#               Ethan Nelson (User Input
+#               Hailey Phipps (Word Getter)
+#               Ethan Nelson (User Input)
 
 from director import Director
 
