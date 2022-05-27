@@ -28,14 +28,8 @@ class Director:
         # Play the game until it is over.
         #   (Runs out of parachute or correctly guesses)
         while not self._game_over:
-            # Prints the word with underscores for unguessed letters.
-            print(self._game_word.get_current_word())
-
-            # Print the Jumper ASCII art, visually shows how many
-            #   guesses are left before losing.
-            #print("[Jumper] Missing method: Print Jumper")
-            self._jumper.print_jumper()
-
+            self.print_screen()
+            
             # Ask the user to guess a letter, verifying that they input 
             #   a single alphabet letter. (Not already guessed)
             user_guess = self._user_input.get_input()
@@ -59,7 +53,7 @@ class Director:
 
                     # The game is over, user loses.
                     self._game_over = True
-                    self._jumper.print_failure()
+                    self.print_screen("lose")
                     print(f"The word was \"{self._word}\"")
             else:
                 # Check if the user has completed the word with their guess.
@@ -70,8 +64,25 @@ class Director:
 
                     # The game is over, user wins.
                     self._game_over = True
+                    self.print_screen("win")
                     print("You guessed the word!")
 
+    def print_screen(self, state = "game"):
+        """
+            Prints the word and the jumper states. Special states have 
+              been created for if the player wins or loses.
+        """
+        # Prints the word with underscores for unguessed letters.
+        print(self._game_word.get_current_word())
+
+        # Print the Jumper ASCII art, visually shows how many
+        #   guesses are left before losing.
+        if state == "game":
+            self._jumper.print_jumper()
+        elif state == "win":
+            self._jumper.print_success()
+        elif state == "lose":
+                self._jumper.print_failure()
 
 if __name__ == "__main__":
     director_test = Director()
