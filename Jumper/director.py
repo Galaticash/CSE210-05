@@ -1,7 +1,7 @@
 # Import additional classes after they are created
 from word_getter import WordGetter
 from word import Word
-# from jumper import Jumper
+from jumper import Jumper
 from user_input import UserInput
 
 class Director:
@@ -9,7 +9,7 @@ class Director:
         self._game_over = False
         self._word_generator = WordGetter()
         self._game_word = Word()
-        # jumper = Jumper()
+        self._jumper = Jumper()
         self._user_input = UserInput()
 
     def play_jumper(self):
@@ -33,8 +33,9 @@ class Director:
 
             # Print the Jumper ASCII art, visually shows how many
             #   guesses are left before losing.
-            print("[Jumper] Missing method: Print Jumper")
-           
+            #print("[Jumper] Missing method: Print Jumper")
+            self._jumper.print_jumper()
+
             # Ask the user to guess a letter, verifying that they input 
             #   a single alphabet letter. (Not already guessed)
             user_guess = self._user_input.get_input()
@@ -45,18 +46,20 @@ class Director:
             # If the letter is not in the word,
             if not correct_guess:
                 # Update the Jumper to remove a line of the parachute.
-                print("[Jumper] Missing method: Remove a line from the parachute")
-                
+                #print("[Jumper] Missing method: Remove a line from the parachute")
+                self._jumper.remove_line()
+
                 # Find out if the Jumper still has some parachute left,
                 #   or if the user is out of guesses.
-                print("[Jumper] Missing method: Get Jumper alive state (True/False)")
-                jumper_alive = False # DEBUGGING: Will automatically end game
+                #print("[Jumper] Missing method: Get Jumper alive state (True/False)")
+                jumper_alive = self._jumper.get_alive() # DEBUGGING: Will automatically end game
 
                 # If the user is out of guesses,
                 if not jumper_alive:
 
                     # The game is over, user loses.
                     self._game_over = True
+                    self._jumper.print_failure()
                     print(f"The word was \"{self._word}\"")
             else:
                 # Check if the user has completed the word with their guess.
