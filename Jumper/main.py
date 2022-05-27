@@ -10,7 +10,7 @@ from director import Director
 def main():
     # Play the Jumper Game
     jumper_director = Director()
-    jumper_director.play_game()
+    jumper_director.play_jumper()
 
 if __name__ == "__main__":
     main()
