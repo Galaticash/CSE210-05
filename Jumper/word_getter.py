@@ -11,6 +11,7 @@ class WordGetter():
 
         # Can't return values inside the constructor method,
         # Create another method "get_word" where this is the only line
+    def get_word(self):
         return(random.choice(self._wordlist))
 
 
