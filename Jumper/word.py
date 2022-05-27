@@ -27,6 +27,7 @@ class Word:
         if self._guessed_letter in self._word:
             for i in (self._word):
                 if self._word[i] == self._guessed_letter:
+                    #logic is sketch, thinking this one over, slicing in python is weird.
                     self._guessed_word = self._guessed_word[:i] + self._guessed_letter + self._guessed_word[i+1:]
         if self._guessed_word == self._word:
             self._all_guessed = True
