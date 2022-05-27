@@ -7,24 +7,28 @@ class Word:
         self._all_guessed = False
         self.underscore()
     
-    #using a property decorator to get the word and set it to the empty word property
-    @property
-    def word(self):
-        return self._word
+    #using a property decorator to set the word and set it to the empty word property
+    def set_word(self, word):
+        self._word = word
 
     def underscore(self):
         #sets the guessed word with underscores for unguessed letters
         for i in range(len(self._word)):
             self._guessed_word += "_"
 
-    #using a property decorator to get a guessed letter, keep track of it in an array, check for matches, and replace the underscore with the letter
-    @property
-    def guess_letter(self):
-        self._guessed_letters.append(self._guessed_letter)
-        if self._guessed_letter in self._word:
-            for i in (self._word):
-                if self._word[i] == self._guessed_letter:
-                    #logic is sketch, thinking this one over, slicing in python is weird.
-                    self._guessed_word = self._guessed_word[:i] + self._guessed_letter + self._guessed_word[i+1:]
+    #using a property decorator to set a guessed letter, keep track of it in an array, check for matches, and replace the underscore with the letter
+    def set_guess_letter(self, _letter):
+        self._guessed_letters.append(_letter)
+        if _letter in self._word:
+            for i in self._word:
+                if i == self._guessed_letter:
+                    #build new guessed word with the letter
+                    _index = self._guessed_word.index(self._guessed_letter)
+                    self._guessed_word = self._guessed_word[:_index] + self._guessed_letter + self._guessed_word[_index+1:]
+            return True
+        else:
+            return False            
+        
+    def guess_checker(self):
         if self._guessed_word == self._word:
             self._all_guessed = True
