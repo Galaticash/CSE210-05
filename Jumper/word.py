@@ -1,6 +1,3 @@
-from msilib.schema import Class
-
-
 class Word:
     def __init__(self):
         #sets the word and guessed word to an empty string, calls underscore to fill the guessed word with blanks
